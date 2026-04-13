@@ -1,0 +1,98 @@
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8f5f5 100%);
+  padding: 2rem 1rem;
+}
+
+.auth-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.auth-card__logo {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.auth-card__logo img { 
+  height: 160px; 
+  width: auto; 
+  margin: -40px auto;
+}
+
+.auth-card__tabs {
+  display: flex;
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  padding: 4px;
+  margin-bottom: 1.5rem;
+  gap: 4px;
+}
+.auth-tab {
+  flex: 1;
+  padding: 0.55rem;
+  border-radius: calc(var(--radius-md) - 2px);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.auth-tab.active {
+  background: var(--color-surface);
+  color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.auth-card__title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.3rem;
+}
+.auth-card__sub {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.auth-form { display: flex; flex-direction: column; }
+.auth-form__submit { width: 100%; margin-top: 0.5rem; }
+
+.auth-card__footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-top: 1rem;
+}
+.auth-toggle {
+  background: none;
+  border: none;
+  color: var(--color-teal);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: inherit;
+}
+.auth-toggle:hover { text-decoration: underline; }
+
+.auth-back-link {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-top: 0.5rem;
+  display: block;
+  transition: color 0.2s;
+}
+.auth-back-link:hover { color: var(--color-teal); }

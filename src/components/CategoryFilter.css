@@ -1,0 +1,27 @@
+.category-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.category-filter__btn {
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.category-filter__btn:hover {
+  border-color: var(--color-teal);
+  color: var(--color-teal);
+  background: rgba(95,179,179,0.06);
+}
+.category-filter__btn.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: white;
+}
