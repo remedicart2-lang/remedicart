@@ -167,7 +167,7 @@
   transition: max-height 0.3s ease;
 }
 .navbar__mobile-menu.open {
-  max-height: 400px;
+  max-height: 500px;
 }
 .mobile-nav-link {
   display: block;

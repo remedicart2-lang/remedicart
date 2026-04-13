@@ -20,12 +20,16 @@ const ProductCard = ({ product }) => {
           className="product-card__image"
         />
         {category && <span className="product-card__category">{category}</span>}
+        <span className="product-card__sale">Sale!</span>
       </div>
       <div className="product-card__body">
         <h3 className="product-card__name">{name}</h3>
         <p className="product-card__desc">{description?.slice(0, 70)}{description?.length > 70 ? '…' : ''}</p>
         <div className="product-card__footer">
-          <span className="product-card__price">₹{parseFloat(price).toFixed(2)}</span>
+          <div className="product-card__price-wrap" style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+            {product.old_price && <span style={{ textDecoration: 'line-through', color: '#9CA3AF', fontSize: '0.9rem' }}>${parseFloat(product.old_price).toFixed(2)}</span>}
+            <span className="product-card__price">${parseFloat(price).toFixed(2)}</span>
+          </div>
           <button
             className="btn btn-primary btn-sm"
             onClick={handleAddToCart}

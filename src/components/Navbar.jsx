@@ -56,7 +56,11 @@ const Navbar = () => {
         {/* Desktop Nav */}
         <nav className="navbar__links">
           <NavLink to="/" end className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Home</NavLink>
-          <NavLink to="/products" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Products</NavLink>
+          <NavLink to="/products" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Shop</NavLink>
+          <NavLink to="/about" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>About us</NavLink>
+          <NavLink to="/contact" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Contact us</NavLink>
+          <NavLink to="/blog" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Blog</NavLink>
+          <NavLink to="/faq" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>FAQ</NavLink>
           {isAdmin && (
             <NavLink to="/admin" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Admin</NavLink>
           )}
@@ -88,7 +92,11 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div className={`navbar__mobile-menu${menuOpen ? ' open' : ''}`}>
         <NavLink to="/" end onClick={() => setMenuOpen(false)} className="mobile-nav-link">Home</NavLink>
-        <NavLink to="/products" onClick={() => setMenuOpen(false)} className="mobile-nav-link">Products</NavLink>
+        <NavLink to="/products" onClick={() => setMenuOpen(false)} className="mobile-nav-link">Shop</NavLink>
+        <NavLink to="/about" onClick={() => setMenuOpen(false)} className="mobile-nav-link">About us</NavLink>
+        <NavLink to="/contact" onClick={() => setMenuOpen(false)} className="mobile-nav-link">Contact us</NavLink>
+        <NavLink to="/blog" onClick={() => setMenuOpen(false)} className="mobile-nav-link">Blog</NavLink>
+        <NavLink to="/faq" onClick={() => setMenuOpen(false)} className="mobile-nav-link">FAQ</NavLink>
         <NavLink to="/cart" onClick={() => setMenuOpen(false)} className="mobile-nav-link">Cart {cartCount > 0 && `(${cartCount})`}</NavLink>
         {isAdmin && <NavLink to="/admin" onClick={() => setMenuOpen(false)} className="mobile-nav-link">Admin Panel</NavLink>}
         {user ? (

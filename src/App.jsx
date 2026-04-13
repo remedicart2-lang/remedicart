@@ -10,6 +10,10 @@ import ProductListing from './pages/ProductListing';
 import ProductDetails from './pages/ProductDetails';
 import Cart from './pages/Cart';
 import Auth from './pages/Auth';
+import Aboutus from './pages/Aboutus';
+import Contactus from './pages/Contactus';
+import Blog from './pages/Blog';
+import FAQ from './pages/FAQ';
 
 // Admin
 import AdminLayout from './admin/AdminLayout';
@@ -33,6 +37,10 @@ const App = () => {
                 <Route path="/products/:id" element={<ProductDetails />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/auth" element={<Auth />} />
+                <Route path="/about" element={<Aboutus />} />
+                <Route path="/contact" element={<Contactus />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/faq" element={<FAQ />} />
 
                 {/* Admin Routes */}
                 <Route path="/admin" element={<AdminLayout />}>
