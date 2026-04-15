@@ -11,7 +11,7 @@
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(95, 179, 179, 0.85); /* Proper Teal Tint */
+  background: linear-gradient(135deg, rgba(95, 179, 179, 0.9), rgba(244, 124, 138, 0.75)); /* Teal to Coral */
   z-index: -1;
 }
 
@@ -31,7 +31,7 @@
 .hero__badge {
   display: inline-block;
   background: white;
-  color: var(--color-teal);
+  color: var(--color-coral);
   padding: 0.45rem 1.25rem;
   border-radius: 999px;
   font-size: 0.8rem;
@@ -39,7 +39,7 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   margin-bottom: 1.5rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(244, 124, 138, 0.2);
 }
 
 .hero__title {
@@ -101,7 +101,7 @@
 
 .about__label {
   display: inline-block;
-  color: var(--color-primary);
+  color: var(--color-orange);
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -203,7 +203,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(95, 179, 179, 0.85); /* Strict Brand Teal Overlay */
+  background: linear-gradient(135deg, rgba(95, 179, 179, 0.9), rgba(244, 162, 97, 0.8)); /* Teal to Orange */
   z-index: 1;
 }
 
@@ -233,7 +233,13 @@
   padding: 1rem 2.5rem;
   font-size: 1rem;
   font-weight: 700;
+  background: white;
+  color: var(--color-orange);
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+.service-banner .btn-primary:hover {
+  background: var(--color-bg);
+  color: var(--color-orange);
 }
 
 .home__empty {
@@ -256,7 +262,7 @@
   display: grid;
   grid-template-columns: 3.5fr 1fr;
   gap: 1.5rem;
-  align-items: start;
+  align-items: stretch;
 }
 
 .editor-main {
@@ -311,6 +317,7 @@
   padding: 2.5rem 1.5rem;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 2.5rem;
 }
 
@@ -405,14 +412,19 @@
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  padding: 2.5rem;
-  min-height: 280px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   transition: transform 0.3s;
 }
 .promo-item:hover { transform: translateY(-5px); }
+
+.promo-content {
+  padding: 2.5rem;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 
 .promo-item--large { 
   grid-row: span 2; 
@@ -424,6 +436,7 @@
 .promo-item--wide { 
   grid-column: span 2;
   background: #ECFDF5;
+  flex-direction: row;
 }
 
 .promo-badge { 
@@ -439,16 +452,18 @@
 }
 .promo-title { font-size: 1.5rem; font-weight: 800; color: var(--color-text); margin-bottom: 0.75rem; line-height: 1.2; }
 .promo-desc { font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 1.5rem; max-width: 280px; }
+
 .promo-img { 
-  position: absolute; 
-  bottom: 0; 
-  right: 0; 
-  max-height: 70%; 
-  object-fit: contain; 
+  width: 100%; 
+  flex: 1;
+  min-height: 220px; 
+  object-fit: cover; 
+  display: block; 
 }
 
-.promo-item--large .promo-img { max-height: 60%; bottom: 2rem; right: 1rem; }
-.promo-item--wide .promo-img { left: 55%; bottom: -10%; max-height: 110%; right: auto; }
+.promo-item--large .promo-img { min-height: 360px; height: 100%; }
+.promo-item--wide .promo-content { width: 50%; justify-content: center; }
+.promo-item--wide .promo-img { width: 50%; height: auto; align-self: stretch; }
 
 /* Why Choose Us */
 .why-choose-us {
@@ -461,7 +476,7 @@
   gap: 5rem;
   align-items: center;
 }
-.why-label { color: var(--color-primary); font-weight: 700; font-size: 0.8rem; letter-spacing: 1.5px; display: block; margin-bottom: 0.75rem; }
+.why-label { color: var(--color-coral); font-weight: 700; font-size: 0.8rem; letter-spacing: 1.5px; display: block; margin-bottom: 0.75rem; }
 .why-title { font-size: 2.5rem; font-weight: 800; color: var(--color-text); margin-bottom: 2.5rem; line-height: 1.15; }
 .why-visual { border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.06); }
 .why-img { width: 100%; display: block; }
@@ -477,12 +492,9 @@
   transition: all 0.3s;
   border-left: 4px solid transparent;
 }
-.why-card:hover { 
-  transform: translateX(10px); 
-  border-left-color: var(--color-primary);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
-}
-.why-card__icon { color: var(--color-primary); flex-shrink: 0; margin-top: 0.25rem; }
+.why-card__icon { color: var(--color-teal); flex-shrink: 0; margin-top: 0.25rem; }
+.why-card:nth-child(2) .why-card__icon { color: var(--color-coral); }
+.why-card:nth-child(3) .why-card__icon { color: var(--color-orange); }
 .why-card__body h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.6rem; color: var(--color-text); }
 .why-card__body p { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.65; }
 
@@ -496,7 +508,7 @@
   color: white;
   text-align: center;
 }
-.testimonials-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(95, 179, 179, 0.9); z-index: 1; }
+.testimonials-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(244, 162, 97, 0.85), rgba(244, 124, 138, 0.9)); z-index: 1; }
 .testimonials-content { position: relative; z-index: 2; }
 .testimonials-label { font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; opacity: 0.9; margin-bottom: 1.25rem; display: block; }
 .testimonials-title { font-size: 3.5rem; font-weight: 800; margin-bottom: 1rem; }

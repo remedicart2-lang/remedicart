@@ -18,15 +18,16 @@ const LATEST_PRODUCTS = [
     name: 'Medical Infrared Thermometer Non-Contact',
     price: 13.00,
     old_price: 17.00,
-    image_url: 'https://images.unsplash.com/photo-1583947215259-38e31be8751f?q=80&w=800&auto=format&fit=crop',
+    image_url: 'https://images.unsplash.com/photo-1688224821110-e0e45cb718d0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bm9uJTIwY29udGFjdCUyMHRoZXJtb21ldGVyfGVufDB8fDB8fHww',
     category: 'Equipment'
   },
+
   {
     id: 'l2',
     name: 'Digital IR Thermometer Forehead Ear',
     price: 13.00,
     old_price: 17.00,
-    image_url: 'https://images.unsplash.com/photo-1583947215259-38e31be8751f?q=80&w=800&auto=format&fit=crop',
+    image_url: 'https://images.unsplash.com/photo-1583947581879-41e4c88394c3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fERpZ2l0YWwlMjBJUiUyMFRoZXJtb21ldGVyfGVufDB8fDB8fHww',
     category: 'Equipment'
   },
   {
@@ -34,7 +35,7 @@ const LATEST_PRODUCTS = [
     name: 'Premium KN95 Health Carbon Filter Mask',
     price: 70.00,
     old_price: 75.00,
-    image_url: 'https://images.unsplash.com/photo-1583947215259-38e31be8751f?q=80&w=800&auto=format&fit=crop',
+    image_url: 'https://images.unsplash.com/photo-1614599467460-3c186483e2b3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8UHJlbWl1bSUyMEtOOTUlMjBIZWFsdGglMjBDYXJib24lMjBGaWx0ZXIlMjBNYXNrfGVufDB8fDB8fHww',
     category: 'Vitals'
   },
   {
@@ -42,15 +43,39 @@ const LATEST_PRODUCTS = [
     name: 'KN95 Health Carbon Filter Mask Color 50 Pack',
     price: 70.00,
     old_price: 75.00,
-    image_url: 'https://images.unsplash.com/photo-1583947215259-38e31be8751f?q=80&w=800&auto=format&fit=crop',
+    image_url: 'https://plus.unsplash.com/premium_photo-1670793333263-387b9e2a340b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Tjk1JTIwSGVhbHRoJTIwQ2FyYm9uJTIwRmlsdGVyJTIwTWFzayUyMENvbG9yJTIwNTAlMjBQYWNrfGVufDB8fDB8fHww',
+    category: 'Vitals'
+  },
+  {
+    id: 'l2',
+    name: 'Digital IR Thermometer Forehead Ear',
+    price: 13.00,
+    old_price: 17.00,
+    image_url: 'https://images.unsplash.com/photo-1583947581879-41e4c88394c3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fERpZ2l0YWwlMjBJUiUyMFRoZXJtb21ldGVyfGVufDB8fDB8fHww',
+    category: 'Equipment'
+  },
+  {
+    id: 'l3',
+    name: 'Premium KN95 Health Carbon Filter Mask',
+    price: 70.00,
+    old_price: 75.00,
+    image_url: 'https://images.unsplash.com/photo-1614599467460-3c186483e2b3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8UHJlbWl1bSUyMEtOOTUlMjBIZWFsdGglMjBDYXJib24lMjBGaWx0ZXIlMjBNYXNrfGVufDB8fDB8fHww',
+    category: 'Vitals'
+  },
+  {
+    id: 'l4',
+    name: 'KN95 Health Carbon Filter Mask Color 50 Pack',
+    price: 70.00,
+    old_price: 75.00,
+    image_url: 'https://plus.unsplash.com/premium_photo-1670793333263-387b9e2a340b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Tjk1JTIwSGVhbHRoJTIwQ2FyYm9uJTIwRmlsdGVyJTIwTWFzayUyMENvbG9yJTIwNTAlMjBQYWNrfGVufDB8fDB8fHww',
     category: 'Vitals'
   },
   {
     id: 'l5',
-    name: 'Health Carbon Filter Mask Color 1 Packs',
+    name: 'Hand Sanitizer Gel 500ml',
     price: 35.00,
     old_price: 39.00,
-    image_url: 'https://images.unsplash.com/photo-1583947215259-38e31be8751f?q=80&w=800&auto=format&fit=crop',
+    image_url: 'https://images.unsplash.com/photo-1599210822756-5c4f400b90ac?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8SGFuZCUyMFNhbml0aXplciUyMEdlbCUyMDUwMG1sfGVufDB8fDB8fHww',
     category: 'Care'
   }
 ];
@@ -80,18 +105,18 @@ const PROMOS = {
   main: {
     title: 'Save up to $15 on select Digital Thermometers',
     desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    image: 'https://images.unsplash.com/photo-1584036561566-baf241f14449?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1615486511369-31ff08672204?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZGlnaXRhbCUyMHRoZXJtb21ldGVyfGVufDB8fDB8fHww',
     bgColor: '#E0F2FE'
   },
   mask: {
     title: 'N95 Face Mask',
     desc: 'Lorem ipsum dolor sit amet consectetur adipiscing elit dolor',
-    image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80'
+    image: 'https://media.istockphoto.com/id/1210215333/photo/protection-factor-for-n95-covid-19-corona-virus-filtering-face-mask.webp?a=1&b=1&s=612x612&w=0&k=20&c=hW8LCYI6TjdS1oGbZHPDtexcJSbNRno8o1qQAxa7XbY='
   },
   routine: {
     title: 'Daily Routine for Good Health',
     desc: 'Lorem ipsum dolor sit amet consectetur adipiscing elit dolor',
-    image: 'https://images.unsplash.com/photo-1550573104-4eb82614b4f6?auto=format&fit=crop&w=600&q=80'
+    image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aGVhbHRoeSUyMGZvb2R8ZW58MHx8MHx8fDA%3D'
   },
   skincare: {
     title: 'Natural Anti-age skin foam',
@@ -113,8 +138,8 @@ const Home = () => {
   return (
     <div className="home">
       {/* Hero */}
-      <section 
-        className="hero" 
+      <section
+        className="hero"
         style={{ backgroundImage: `url(${heroBg})` }}
       >
         <div className="hero__overlay"></div>
@@ -129,7 +154,7 @@ const Home = () => {
               Genuine products. Quick delivery. Expert care.
             </p>
             <div className="hero__cta">
-              <Link to="/products" className="btn btn-white btn-lg" id="hero-shop-btn" style={{ background: 'white', color: 'var(--color-primary)' }}>Discover more</Link>
+              <Link to="/products" className="btn btn-accent btn-lg" id="hero-shop-btn">Discover more</Link>
             </div>
           </div>
         </div>
@@ -147,26 +172,26 @@ const Home = () => {
               Erat litora dignissim consectetur sit mollis. Placerat gravida dolor integer mollis habitant felis consectetur lorem platea ac hendrerit. Vitae platea massa consectetuer tristique vivamus vulputate suspendisse blandit.
             </p>
           </div>
-          
+
           <div className="about__visual">
-            <img 
-              src="https://images.unsplash.com/photo-1550831107-1553da8c8464?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-              alt="Pharmacists serving customer" 
-              className="about__img" 
+            <img
+              src="https://images.unsplash.com/photo-1550831107-1553da8c8464?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Pharmacists serving customer"
+              className="about__img"
             />
           </div>
 
           <div className="about__stats">
             <div className="stat-box">
-              <span className="stat-number">14K+</span>
+              <span className="stat-number" style={{ color: 'var(--color-teal)' }}>14K+</span>
               <span className="stat-text">Happy Customer</span>
             </div>
             <div className="stat-box">
-              <span className="stat-number">27K+</span>
+              <span className="stat-number" style={{ color: 'var(--color-coral)' }}>27K+</span>
               <span className="stat-text">Product Sold</span>
             </div>
             <div className="stat-box">
-              <span className="stat-number">15+</span>
+              <span className="stat-number" style={{ color: 'var(--color-orange)' }}>15+</span>
               <span className="stat-text">Years Experience</span>
             </div>
           </div>
@@ -182,7 +207,7 @@ const Home = () => {
               <h2 className="editor-title">Editor's Choice</h2>
               <div className="editor-divider"></div>
             </div>
-            
+
             {loading ? (
               <div className="loading-wrapper"><div className="spinner" /></div>
             ) : featured.length > 0 ? (
@@ -200,15 +225,15 @@ const Home = () => {
           <div className="editor-sidebar">
             <div className="trust-item">
               <div className="trust-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
               </div>
               <h4 className="trust-title">International\nShipment</h4>
               <p className="trust-desc">Your orders are shipped seamlessly between countries</p>
             </div>
-            
+
             <div className="trust-item">
               <div className="trust-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
               </div>
               <h4 className="trust-title">30 Days Warranty</h4>
               <p className="trust-desc">You have the right to return your orders within 30 days.</p>
@@ -216,7 +241,7 @@ const Home = () => {
 
             <div className="trust-item">
               <div className="trust-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2" /><line x1="1" y1="10" x2="23" y2="10" /></svg>
               </div>
               <h4 className="trust-title">Secure Payment</h4>
               <p className="trust-desc">Your payments are secure with our private security network.</p>
@@ -278,7 +303,7 @@ const Home = () => {
             <div className="promo-content">
               <h3 className="promo-title">{PROMOS.routine.title}</h3>
               <p className="promo-desc">{PROMOS.routine.desc}</p>
-              <Link to="/products" className="btn btn-primary btn-sm">Shop now</Link>
+              <Link to="/products" className="btn btn-secondary btn-sm">Shop now</Link>
             </div>
             <img src={PROMOS.routine.image} alt="Routine" className="promo-img" />
           </div>
@@ -287,7 +312,7 @@ const Home = () => {
             <div className="promo-content">
               <h3 className="promo-title">{PROMOS.skincare.title}</h3>
               <p className="promo-desc">{PROMOS.skincare.desc}</p>
-              <Link to="/products" className="btn btn-primary btn-sm">Shop now</Link>
+              <Link to="/products" className="btn btn-accent btn-sm">Shop now</Link>
             </div>
             <img src={PROMOS.skincare.image} alt="Skincare" className="promo-img" />
           </div>
@@ -301,14 +326,14 @@ const Home = () => {
             <span className="why-label">WHY CHOOSE US</span>
             <h2 className="why-title">Best services available for the best customers</h2>
             <div className="why-visual">
-              <img src="https://images.unsplash.com/photo-1582213726892-2dc91a132717?auto=format&fit=crop&w=800&q=80" alt="Service illustration" className="why-img" />
+              <img src="https://plus.unsplash.com/premium_photo-1661690006963-7c8868418ed6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmVzdCUyMG1lZGljYWwlMjBzZXJ2aWNlc3xlbnwwfHwwfHx8MA%3D%3D" alt="Service illustration" className="why-img" />
             </div>
           </div>
-          
+
           <div className="why-features">
             <div className="why-card">
               <div className="why-card__icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"/><path d="M12 5v4M10 7h4"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z" /><path d="M12 5v4M10 7h4" /></svg>
               </div>
               <div className="why-card__body">
                 <h4>Honesty & transparency</h4>
@@ -318,7 +343,7 @@ const Home = () => {
 
             <div className="why-card">
               <div className="why-card__icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" /><line x1="7" y1="7" x2="7.01" y2="7" /></svg>
               </div>
               <div className="why-card__body">
                 <h4>Extra Discount</h4>
@@ -328,7 +353,7 @@ const Home = () => {
 
             <div className="why-card">
               <div className="why-card__icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6" /><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" /></svg>
               </div>
               <div className="why-card__body">
                 <h4>24/7 Premium Support</h4>
@@ -346,7 +371,7 @@ const Home = () => {
           <span className="testimonials-label">TESTIMONIAL</span>
           <h2 className="testimonials-title">What they say about us</h2>
           <p className="testimonials-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
-          
+
           <div className="grid grid-3 testimonial-grid">
             {TESTIMONIALS.map((t, i) => (
               <div key={i} className="testimonial-card">

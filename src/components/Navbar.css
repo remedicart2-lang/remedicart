@@ -1,6 +1,5 @@
-/* Topbar Styles */
 .topbar {
-  background: var(--color-primary);
+  background: linear-gradient(90deg, var(--color-primary), var(--color-coral));
   color: white;
   font-size: 0.8rem;
   font-weight: 500;

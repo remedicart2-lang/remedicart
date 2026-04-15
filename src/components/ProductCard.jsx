@@ -26,12 +26,12 @@ const ProductCard = ({ product }) => {
         <h3 className="product-card__name">{name}</h3>
         <p className="product-card__desc">{description?.slice(0, 70)}{description?.length > 70 ? '…' : ''}</p>
         <div className="product-card__footer">
-          <div className="product-card__price-wrap" style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+          <div className="product-card__price-wrap">
             {product.old_price && <span style={{ textDecoration: 'line-through', color: '#9CA3AF', fontSize: '0.9rem' }}>${parseFloat(product.old_price).toFixed(2)}</span>}
             <span className="product-card__price">${parseFloat(price).toFixed(2)}</span>
           </div>
           <button
-            className="btn btn-primary btn-sm"
+            className="btn btn-secondary btn-sm"
             onClick={handleAddToCart}
             id={`add-to-cart-${id}`}
           >
