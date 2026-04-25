@@ -32,14 +32,33 @@ export const getProductById = async (id) => {
   return data;
 };
 
-// Search products by name
+// Search products by name or content
 export const searchProducts = async (query) => {
   const { data, error } = await supabase
     .from('products')
     .select('*')
-    .ilike('name', `%${query}%`);
+    .or(`name.ilike.%${query}%,content.ilike.%${query}%`);
   if (error) throw error;
   return data;
+};
+
+// Upload image to Supabase Storage
+export const uploadProductImage = async (file) => {
+  const fileExt = file.name.split('.').pop();
+  const fileName = `${Math.random().toString(36).substring(2)}.${fileExt}`;
+  const filePath = `${fileName}`;
+
+  const { error: uploadError } = await supabase.storage
+    .from('product-images')
+    .upload(filePath, file);
+
+  if (uploadError) throw uploadError;
+
+  const { data: { publicUrl } } = supabase.storage
+    .from('product-images')
+    .getPublicUrl(filePath);
+
+  return publicUrl;
 };
 
 // Admin: Add product

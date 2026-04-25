@@ -50,7 +50,7 @@ const ProductDetails = () => {
           {/* Image */}
           <div className="product-details__image-wrap">
             <img
-              src={product.image_url || 'https://placehold.co/600x500/e2e8f0/64748b?text=No+Image'}
+              src={product.imageUrl || 'https://placehold.co/600x500/e2e8f0/64748b?text=No+Image'}
               alt={product.name}
               className="product-details__image"
             />

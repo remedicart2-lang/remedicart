@@ -16,11 +16,17 @@ const Auth = () => {
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user, isAdmin } = useAuth();
 
   useEffect(() => {
-    if (user) navigate('/');
-  }, [user, navigate]);
+    if (user) {
+      if (isAdmin) {
+        navigate('/admin/products');
+      } else {
+        navigate('/');
+      }
+    }
+  }, [user, isAdmin, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,12 +36,12 @@ const Auth = () => {
     try {
       if (mode === 'login') {
         await signIn(email, password);
-        navigate('/');
+        // Redirect handled by useEffect
       } else {
         const { user: newUser } = await signUp(email, password);
         if (newUser) {
           await createUserProfile(newUser.id, newUser.email, 'user');
-          setMessage('Account created! Please check your email to confirm, then sign in.');
+          setMessage('Account created! Sign in to continue.');
           setMode('login');
         } else {
           setMessage('Account created! Please check your email to confirm your address.');

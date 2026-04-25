@@ -7,7 +7,7 @@ import logo from '../assets/logo.png';
 import './Navbar.css';
 
 const Navbar = () => {
-  const { user, isAdmin } = useAuth();
+  const { user, isAdmin, logout } = useAuth();
   const { cartCount } = useCart();
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -20,8 +20,7 @@ const Navbar = () => {
   }, []);
 
   const handleSignOut = async () => {
-    await signOut();
-    navigate('/');
+    await logout();
     setMenuOpen(false);
   };
 
@@ -76,7 +75,7 @@ const Navbar = () => {
           {user ? (
             <div className="navbar__user-menu">
               <span className="navbar__user-email">{user.email?.split('@')[0]}</span>
-              <button className="btn btn-outline btn-sm" onClick={handleSignOut} id="navbar-signout-btn">Sign Out</button>
+              <Link to="/logout" className="btn btn-outline btn-sm" id="navbar-signout-btn">Sign Out</Link>
             </div>
           ) : (
             <Link to="/auth" className="btn btn-primary btn-sm" id="navbar-login-btn">Sign In</Link>
@@ -100,7 +99,7 @@ const Navbar = () => {
         <NavLink to="/cart" onClick={() => setMenuOpen(false)} className="mobile-nav-link">Cart {cartCount > 0 && `(${cartCount})`}</NavLink>
         {isAdmin && <NavLink to="/admin" onClick={() => setMenuOpen(false)} className="mobile-nav-link">Admin Panel</NavLink>}
         {user ? (
-          <button className="mobile-nav-link" onClick={handleSignOut}>Sign Out</button>
+          <Link to="/logout" className="mobile-nav-link" onClick={() => setMenuOpen(false)}>Sign Out</Link>
         ) : (
           <NavLink to="/auth" onClick={() => setMenuOpen(false)} className="mobile-nav-link">Sign In</NavLink>
         )}

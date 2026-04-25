@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
 import Navbar from './components/Navbar';
@@ -21,6 +21,7 @@ import AdminDashboard from './admin/AdminDashboard';
 import AdminProducts from './admin/AdminProducts';
 import AdminOrders from './admin/AdminOrders';
 import AdminUsers from './admin/AdminUsers';
+import Logout from './pages/Logout';
 
 const App = () => {
   return (
@@ -41,6 +42,8 @@ const App = () => {
                 <Route path="/contact" element={<Contactus />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/faq" element={<FAQ />} />
+                <Route path="/login" element={<Navigate to="/admin/products" replace />} />
+                <Route path="/logout" element={<Logout />} />
 
                 {/* Admin Routes */}
                 <Route path="/admin" element={<AdminLayout />}>

@@ -4,7 +4,7 @@ import './ProductCard.css';
 
 const ProductCard = ({ product }) => {
   const { addToCart } = useCart();
-  const { id, name, price, image_url, category, description } = product;
+  const { id, name, price, imageUrl, category, description } = product;
 
   const handleAddToCart = (e) => {
     e.preventDefault();
@@ -15,7 +15,7 @@ const ProductCard = ({ product }) => {
     <Link to={`/products/${id}`} className="product-card" id={`product-card-${id}`}>
       <div className="product-card__image-wrap">
         <img
-          src={image_url || 'https://placehold.co/400x300/e2e8f0/64748b?text=No+Image'}
+          src={imageUrl || 'https://placehold.co/400x300/e2e8f0/64748b?text=No+Image'}
           alt={name}
           className="product-card__image"
         />

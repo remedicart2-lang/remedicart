@@ -10,14 +10,12 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Get initial session
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session?.user ?? null);
       if (session?.user) fetchProfile(session.user.id);
       else setLoading(false);
     });
 
-    // Listen for auth state changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
       setUser(session?.user ?? null);
       if (session?.user) {
@@ -36,7 +34,6 @@ export const AuthProvider = ({ children }) => {
       const profileData = await getUserProfile(userId);
       setProfile(profileData);
     } catch {
-      // Profile may not exist yet; create it
       try {
         const user = (await supabase.auth.getUser()).data.user;
         if (user) {
@@ -54,13 +51,34 @@ export const AuthProvider = ({ children }) => {
 
   const isAdmin = profile?.role === 'admin';
 
+  const logout = async () => {
+    console.log('Logging out...');
+    try {
+      setLoading(true);
+      const { error } = await supabase.auth.signOut();
+      if (error) throw error;
+      
+      setUser(null);
+      setProfile(null);
+      
+      console.log('Sign out successful, redirecting...');
+      // Use location.replace for a cleaner history
+      window.location.replace('/auth');
+    } catch (err) {
+      console.error('Logout error:', err);
+      // Fallback redirect even on error
+      window.location.replace('/auth');
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ user, profile, loading, isAdmin }}>
+    <AuthContext.Provider value={{ user, profile, loading, isAdmin, logout }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
+// Internal hook for the file if needed, but we export a helper
 export const useAuth = () => {
   const ctx = useContext(AuthContext);
   if (!ctx) throw new Error('useAuth must be used within AuthProvider');

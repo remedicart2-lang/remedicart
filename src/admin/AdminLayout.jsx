@@ -1,46 +1,53 @@
-import { Navigate, Outlet, NavLink } from 'react-router-dom';
+import { Navigate, Outlet, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import './AdminLayout.css';
 
 const AdminLayout = () => {
-  const { user, isAdmin, loading } = useAuth();
+  const { user, profile, isAdmin, loading, logout } = useAuth();
 
   if (loading) return <div className="loading-wrapper"><div className="spinner" /></div>;
-  if (!user) return <Navigate to="/auth" replace />;
-  if (!isAdmin) return (
-    <div className="admin-unauthorized">
-      <h2>🔒 Access Denied</h2>
-      <p>You need admin privileges to access this panel.</p>
-    </div>
-  );
+  
+  // TEMPORARY BYPASS: Allowing access during setup
+  // if (!user) return <Navigate to="/auth" replace />;
+  // if (!isAdmin) return (
+  //   <div className="admin-unauthorized">
+  //     <h2>🔒 Access Denied</h2>
+  //     <p>You need admin privileges to access this panel.</p>
+  //   </div>
+  // );
 
   return (
-    <div className="admin-layout">
-      {/* Sidebar */}
-      <aside className="admin-sidebar">
-        <div className="admin-sidebar__brand">
-          <span>⚕️</span>
-          <span>Admin Panel</span>
+    <div className="admin-workspace">
+      {/* Top Header */}
+      <header className="admin-header">
+        <div className="container admin-header__inner">
+          <div className="admin-header__left">
+            <Link to="/admin" className="admin-logo">
+              Admin Panel
+            </Link>
+          </div>
+          <div className="admin-header__right">
+            <div className="admin-profile">
+              <div className="admin-profile__status">
+                <span className="admin-profile__icon">👤</span>
+                <div className="admin-profile__info">
+                  <span className="admin-profile__name">{profile?.name || 'Admin'}</span>
+                  <span className="admin-profile__online">Online</span>
+                </div>
+              </div>
+              <Link to="/logout" className="btn logout-btn" id="admin-logout-btn">
+                <span>↪</span> Logout
+              </Link>
+            </div>
+          </div>
         </div>
-        <nav className="admin-nav">
-          <NavLink to="/admin" end className={({ isActive }) => `admin-nav-link${isActive ? ' active' : ''}`} id="admin-nav-dashboard">
-            📊 Dashboard
-          </NavLink>
-          <NavLink to="/admin/products" className={({ isActive }) => `admin-nav-link${isActive ? ' active' : ''}`} id="admin-nav-products">
-            💊 Products
-          </NavLink>
-          <NavLink to="/admin/orders" className={({ isActive }) => `admin-nav-link${isActive ? ' active' : ''}`} id="admin-nav-orders">
-            📦 Orders
-          </NavLink>
-          <NavLink to="/admin/users" className={({ isActive }) => `admin-nav-link${isActive ? ' active' : ''}`} id="admin-nav-users">
-            👥 Users
-          </NavLink>
-        </nav>
-      </aside>
+      </header>
 
-      {/* Main Content */}
-      <main className="admin-main">
-        <Outlet />
+      {/* Main Content Area */}
+      <main className="admin-content">
+        <div className="container">
+          <Outlet />
+        </div>
       </main>
     </div>
   );

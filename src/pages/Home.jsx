@@ -18,7 +18,7 @@ const LATEST_PRODUCTS = [
     name: 'Medical Infrared Thermometer Non-Contact',
     price: 13.00,
     old_price: 17.00,
-    image_url: 'https://images.unsplash.com/photo-1688224821110-e0e45cb718d0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bm9uJTIwY29udGFjdCUyMHRoZXJtb21ldGVyfGVufDB8fDB8fHww',
+    imageUrl: 'https://images.unsplash.com/photo-1688224821110-e0e45cb718d0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bm9uJTIwY29udGFjdCUyMHRoZXJtb21ldGVyfGVufDB8fDB8fHww',
     category: 'Equipment'
   },
 
@@ -27,7 +27,7 @@ const LATEST_PRODUCTS = [
     name: 'Digital IR Thermometer Forehead Ear',
     price: 13.00,
     old_price: 17.00,
-    image_url: 'https://images.unsplash.com/photo-1583947581879-41e4c88394c3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fERpZ2l0YWwlMjBJUiUyMFRoZXJtb21ldGVyfGVufDB8fDB8fHww',
+    imageUrl: 'https://images.unsplash.com/photo-1583947581879-41e4c88394c3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fERpZ2l0YWwlMjBJUiUyMFRoZXJtb21ldGVyfGVufDB8fDB8fHww',
     category: 'Equipment'
   },
   {
@@ -35,7 +35,7 @@ const LATEST_PRODUCTS = [
     name: 'Premium KN95 Health Carbon Filter Mask',
     price: 70.00,
     old_price: 75.00,
-    image_url: 'https://images.unsplash.com/photo-1614599467460-3c186483e2b3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8UHJlbWl1bSUyMEtOOTUlMjBIZWFsdGglMjBDYXJib24lMjBGaWx0ZXIlMjBNYXNrfGVufDB8fDB8fHww',
+    imageUrl: 'https://images.unsplash.com/photo-1614599467460-3c186483e2b3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8UHJlbWl1bSUyMEtOOTUlMjBIZWFsdGglMjBDYXJib24lMjBGaWx0ZXIlMjBNYXNrfGVufDB8fDB8fHww',
     category: 'Vitals'
   },
   {
@@ -43,7 +43,7 @@ const LATEST_PRODUCTS = [
     name: 'KN95 Health Carbon Filter Mask Color 50 Pack',
     price: 70.00,
     old_price: 75.00,
-    image_url: 'https://plus.unsplash.com/premium_photo-1670793333263-387b9e2a340b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Tjk1JTIwSGVhbHRoJTIwQ2FyYm9uJTIwRmlsdGVyJTIwTWFzayUyMENvbG9yJTIwNTAlMjBQYWNrfGVufDB8fDB8fHww',
+    imageUrl: 'https://plus.unsplash.com/premium_photo-1670793333263-387b9e2a340b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Tjk1JTIwSGVhbHRoJTIwQ2FyYm9uJTIwRmlsdGVyJTIwTWFzayUyMENvbG9yJTIwNTAlMjBQYWNrfGVufDB8fDB8fHww',
     category: 'Vitals'
   },
   {
@@ -51,7 +51,7 @@ const LATEST_PRODUCTS = [
     name: 'Digital IR Thermometer Forehead Ear',
     price: 13.00,
     old_price: 17.00,
-    image_url: 'https://images.unsplash.com/photo-1583947581879-41e4c88394c3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fERpZ2l0YWwlMjBJUiUyMFRoZXJtb21ldGVyfGVufDB8fDB8fHww',
+    imageUrl: 'https://images.unsplash.com/photo-1583947581879-41e4c88394c3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fERpZ2l0YWwlMjBJUiUyMFRoZXJtb21ldGVyfGVufDB8fDB8fHww',
     category: 'Equipment'
   },
   {
@@ -59,7 +59,7 @@ const LATEST_PRODUCTS = [
     name: 'Premium KN95 Health Carbon Filter Mask',
     price: 70.00,
     old_price: 75.00,
-    image_url: 'https://images.unsplash.com/photo-1614599467460-3c186483e2b3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8UHJlbWl1bSUyMEtOOTUlMjBIZWFsdGglMjBDYXJib24lMjBGaWx0ZXIlMjBNYXNrfGVufDB8fDB8fHww',
+    imageUrl: 'https://images.unsplash.com/photo-1614599467460-3c186483e2b3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8UHJlbWl1bSUyMEtOOTUlMjBIZWFsdGglMjBDYXJib24lMjBGaWx0ZXIlMjBNYXNrfGVufDB8fDB8fHww',
     category: 'Vitals'
   },
   {
@@ -67,7 +67,7 @@ const LATEST_PRODUCTS = [
     name: 'KN95 Health Carbon Filter Mask Color 50 Pack',
     price: 70.00,
     old_price: 75.00,
-    image_url: 'https://plus.unsplash.com/premium_photo-1670793333263-387b9e2a340b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Tjk1JTIwSGVhbHRoJTIwQ2FyYm9uJTIwRmlsdGVyJTIwTWFzayUyMENvbG9yJTIwNTAlMjBQYWNrfGVufDB8fDB8fHww',
+    imageUrl: 'https://plus.unsplash.com/premium_photo-1670793333263-387b9e2a340b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Tjk1JTIwSGVhbHRoJTIwQ2FyYm9uJTIwRmlsdGVyJTIwTWFzayUyMENvbG9yJTIwNTAlMjBQYWNrfGVufDB8fDB8fHww',
     category: 'Vitals'
   },
   {
@@ -75,7 +75,7 @@ const LATEST_PRODUCTS = [
     name: 'Hand Sanitizer Gel 500ml',
     price: 35.00,
     old_price: 39.00,
-    image_url: 'https://images.unsplash.com/photo-1599210822756-5c4f400b90ac?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8SGFuZCUyMFNhbml0aXplciUyMEdlbCUyMDUwMG1sfGVufDB8fDB8fHww',
+    imageUrl: 'https://images.unsplash.com/photo-1599210822756-5c4f400b90ac?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8SGFuZCUyMFNhbml0aXplciUyMEdlbCUyMDUwMG1sfGVufDB8fDB8fHww',
     category: 'Care'
   }
 ];
