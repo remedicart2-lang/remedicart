@@ -2,7 +2,28 @@ import { useEffect, useState, useRef } from 'react';
 import { getProducts, addProduct, updateProduct, deleteProduct, searchProducts, uploadProductImage } from '../services/productService';
 import './AdminProducts.css';
 
-const CATEGORIES = ['Tablets', 'Syrups', 'Capsules', 'Vitamins', 'Skincare', 'Devices', 'Drop-shipping'];
+const CATEGORIES = [
+  'best-seller', 
+  'antiviral-antibiotic', 
+  'kamagra', 
+  'sildenafil', 
+  'tadalafil', 
+  'vardenafil', 
+  'avanafil', 
+  'modafinil-armodafinil', 
+  'hair-loss', 
+  'pain-killer', 
+  'sleeping-pills', 
+  'skin-cream', 
+  'weight-loss', 
+  'eye-ear-drops', 
+  'steroid', 
+  'drop-shipping', 
+  'contraceptives', 
+  'others',
+  'Latest Product',
+  'Editor\'s Choice'
+];
 
 const AdminProducts = () => {
   const [products, setProducts] = useState([]);

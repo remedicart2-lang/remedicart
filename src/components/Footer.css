@@ -41,7 +41,7 @@
 }
 .footer__list li, .footer__list a {
   font-size: 0.875rem;
-  color: var(--color-text-muted);
+  color: var(--color-text);
   font-weight: 500;
   transition: color 0.2s;
 }
@@ -54,7 +54,7 @@
   justify-content: space-between;
   align-items: center;
   font-size: 0.8rem;
-  color: var(--color-text-muted);
+  color: var(--color-text);
   font-weight: 500;
 }
 

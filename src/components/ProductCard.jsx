@@ -1,14 +1,21 @@
 import { Link } from 'react-router-dom';
-import { useCart } from '../context/CartContext';
 import './ProductCard.css';
 
 const ProductCard = ({ product }) => {
-  const { addToCart } = useCart();
   const { id, name, price, imageUrl, category, description } = product;
 
-  const handleAddToCart = (e) => {
+  const handleInquiry = (e) => {
     e.preventDefault();
-    addToCart(product, 1);
+    const subject = encodeURIComponent(`Inquiry about ${product.name}`);
+    const body = encodeURIComponent(
+      `Hello,\n\nI would like to know more about ${product.name}.\n\nThank you.`
+    );
+
+    const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=remedicart2@gmail.com&su=${subject}&body=${body}`;
+    const mailtoLink = `mailto:medclickpharma@gmail.com?subject=${subject}&body=${body}`;
+
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    window.open(isMobile ? mailtoLink : gmailLink, "_blank");
   };
 
   return (
@@ -26,16 +33,12 @@ const ProductCard = ({ product }) => {
         <h3 className="product-card__name">{name}</h3>
         <p className="product-card__desc">{description?.slice(0, 70)}{description?.length > 70 ? '…' : ''}</p>
         <div className="product-card__footer">
-          <div className="product-card__price-wrap">
-            {product.old_price && <span style={{ textDecoration: 'line-through', color: '#9CA3AF', fontSize: '0.9rem' }}>${parseFloat(product.old_price).toFixed(2)}</span>}
-            <span className="product-card__price">${parseFloat(price).toFixed(2)}</span>
-          </div>
           <button
-            className="btn btn-secondary btn-sm"
-            onClick={handleAddToCart}
-            id={`add-to-cart-${id}`}
+            onClick={handleInquiry}
+            className="btn btn-primary"
+            style={{ width: '100%', display: 'flex', justifyContent: 'center', gap: '0.5rem' }}
           >
-            Add to Cart
+            Enquire Now
           </button>
         </div>
       </div>

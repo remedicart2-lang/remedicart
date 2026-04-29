@@ -2,9 +2,12 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from '../components/SearchBar';
 import ProductCard from '../components/ProductCard';
-import { getProducts } from '../services/productService';
-import heroBg from '../assets/hero1.jpg';
+import { getProductsByCategory } from '../services/productService';
+import heroBg from '../assets/hero-bg-cropped.jpg';
 import pillsBg from '../assets/pills-bg.jpg';
+import aboutImg from '../assets/remedicart-img4.jpg.jpeg';
+import vitBg from '../assets/vit.jpeg';
+import bestImg from '../assets/best.jpeg';
 import './Home.css';
 
 const FEATURES = [
@@ -12,127 +15,51 @@ const FEATURES = [
   { icon: '✅', title: 'Genuine Products', desc: '100% authentic medicines from verified suppliers' },
 ];
 
-const LATEST_PRODUCTS = [
-  {
-    id: 'l1',
-    name: 'Medical Infrared Thermometer Non-Contact',
-    price: 13.00,
-    old_price: 17.00,
-    imageUrl: 'https://images.unsplash.com/photo-1688224821110-e0e45cb718d0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bm9uJTIwY29udGFjdCUyMHRoZXJtb21ldGVyfGVufDB8fDB8fHww',
-    category: 'Equipment'
-  },
 
-  {
-    id: 'l2',
-    name: 'Digital IR Thermometer Forehead Ear',
-    price: 13.00,
-    old_price: 17.00,
-    imageUrl: 'https://images.unsplash.com/photo-1583947581879-41e4c88394c3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fERpZ2l0YWwlMjBJUiUyMFRoZXJtb21ldGVyfGVufDB8fDB8fHww',
-    category: 'Equipment'
-  },
-  {
-    id: 'l3',
-    name: 'Premium KN95 Health Carbon Filter Mask',
-    price: 70.00,
-    old_price: 75.00,
-    imageUrl: 'https://images.unsplash.com/photo-1614599467460-3c186483e2b3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8UHJlbWl1bSUyMEtOOTUlMjBIZWFsdGglMjBDYXJib24lMjBGaWx0ZXIlMjBNYXNrfGVufDB8fDB8fHww',
-    category: 'Vitals'
-  },
-  {
-    id: 'l4',
-    name: 'KN95 Health Carbon Filter Mask Color 50 Pack',
-    price: 70.00,
-    old_price: 75.00,
-    imageUrl: 'https://plus.unsplash.com/premium_photo-1670793333263-387b9e2a340b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Tjk1JTIwSGVhbHRoJTIwQ2FyYm9uJTIwRmlsdGVyJTIwTWFzayUyMENvbG9yJTIwNTAlMjBQYWNrfGVufDB8fDB8fHww',
-    category: 'Vitals'
-  },
-  {
-    id: 'l2',
-    name: 'Digital IR Thermometer Forehead Ear',
-    price: 13.00,
-    old_price: 17.00,
-    imageUrl: 'https://images.unsplash.com/photo-1583947581879-41e4c88394c3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fERpZ2l0YWwlMjBJUiUyMFRoZXJtb21ldGVyfGVufDB8fDB8fHww',
-    category: 'Equipment'
-  },
-  {
-    id: 'l3',
-    name: 'Premium KN95 Health Carbon Filter Mask',
-    price: 70.00,
-    old_price: 75.00,
-    imageUrl: 'https://images.unsplash.com/photo-1614599467460-3c186483e2b3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8UHJlbWl1bSUyMEtOOTUlMjBIZWFsdGglMjBDYXJib24lMjBGaWx0ZXIlMjBNYXNrfGVufDB8fDB8fHww',
-    category: 'Vitals'
-  },
-  {
-    id: 'l4',
-    name: 'KN95 Health Carbon Filter Mask Color 50 Pack',
-    price: 70.00,
-    old_price: 75.00,
-    imageUrl: 'https://plus.unsplash.com/premium_photo-1670793333263-387b9e2a340b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Tjk1JTIwSGVhbHRoJTIwQ2FyYm9uJTIwRmlsdGVyJTIwTWFzayUyMENvbG9yJTIwNTAlMjBQYWNrfGVufDB8fDB8fHww',
-    category: 'Vitals'
-  },
-  {
-    id: 'l5',
-    name: 'Hand Sanitizer Gel 500ml',
-    price: 35.00,
-    old_price: 39.00,
-    imageUrl: 'https://images.unsplash.com/photo-1599210822756-5c4f400b90ac?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8SGFuZCUyMFNhbml0aXplciUyMEdlbCUyMDUwMG1sfGVufDB8fDB8fHww',
-    category: 'Care'
-  }
-];
 
 const TESTIMONIALS = [
   {
     name: 'Harvey Powell',
     role: 'Business Manager',
-    quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.',
+    quote: 'RemediCart has completely transformed how I manage my prescriptions. The fast delivery and genuine products give me total peace of mind.',
     avatar: 'https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?auto=format&fit=crop&w=200&q=80'
   },
   {
     name: 'Maria Collins',
-    role: 'Business Manager',
-    quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.',
+    role: 'Teacher',
+    quote: 'The customer service is outstanding. I had a question about my order, and their support team was incredibly helpful and responsive.',
     avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80'
   },
   {
     name: 'Livia Reynolds',
-    role: 'Business Manager',
-    quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.',
+    role: 'Freelancer',
+    quote: 'I love the convenience of ordering my family\'s healthcare essentials from one place. The quick international shipping is a game changer.',
     avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80'
   }
 ];
 
-const PROMOS = {
-  main: {
-    title: 'Save up to $15 on select Digital Thermometers',
-    desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    image: 'https://images.unsplash.com/photo-1615486511369-31ff08672204?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZGlnaXRhbCUyMHRoZXJtb21ldGVyfGVufDB8fDB8fHww',
-    bgColor: '#E0F2FE'
-  },
-  mask: {
-    title: 'N95 Face Mask',
-    desc: 'Lorem ipsum dolor sit amet consectetur adipiscing elit dolor',
-    image: 'https://media.istockphoto.com/id/1210215333/photo/protection-factor-for-n95-covid-19-corona-virus-filtering-face-mask.webp?a=1&b=1&s=612x612&w=0&k=20&c=hW8LCYI6TjdS1oGbZHPDtexcJSbNRno8o1qQAxa7XbY='
-  },
-  routine: {
-    title: 'Daily Routine for Good Health',
-    desc: 'Lorem ipsum dolor sit amet consectetur adipiscing elit dolor',
-    image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aGVhbHRoeSUyMGZvb2R8ZW58MHx8MHx8fDA%3D'
-  },
-  skincare: {
-    title: 'Natural Anti-age skin foam',
-    desc: 'Lorem ipsum dolor sit amet consectetur adipiscing elit dolor',
-    image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1200&q=80'
-  }
-};
+
 
 const Home = () => {
-  const [featured, setFeatured] = useState([]);
+  const [editorsChoice, setEditorsChoice] = useState([]);
+  const [latestProducts, setLatestProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Force static preview data while disconnected from Supabase
-    setFeatured(LATEST_PRODUCTS);
-    setLoading(false);
+    const fetchHomeProducts = async () => {
+      try {
+        const editors = await getProductsByCategory("Editor's Choice");
+        const latest = await getProductsByCategory("Latest Product");
+        setEditorsChoice(editors);
+        setLatestProducts(latest);
+      } catch (err) {
+        console.error('Error fetching home products:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchHomeProducts();
   }, []);
 
   return (
@@ -147,11 +74,10 @@ const Home = () => {
           <div className="hero__content">
             <div className="hero__badge">WELCOME TO REMEDICART</div>
             <h1 className="hero__title">
-              Our only priority is to<br />keep you healthy.
+              Healing<br />Made<br />Simple
             </h1>
             <p className="hero__subtitle">
-              Order medicines, vitamins, and healthcare products from the comfort of your home.
-              Genuine products. Quick delivery. Expert care.
+              Genuine medicines and expert care,<br />right to your doorstep.
             </p>
             <div className="hero__cta">
               <Link to="/products" className="btn btn-accent btn-lg" id="hero-shop-btn">Discover more</Link>
@@ -169,13 +95,13 @@ const Home = () => {
               With us, expect more<br />than just a pharmacy.
             </h2>
             <p className="about__desc">
-              Erat litora dignissim consectetur sit mollis. Placerat gravida dolor integer mollis habitant felis consectetur lorem platea ac hendrerit. Vitae platea massa consectetuer tristique vivamus vulputate suspendisse blandit.
+              We are dedicated to providing the best healthcare solutions for you and your family. Expect top quality medicines, exceptional customer care, and a commitment to your well-being.
             </p>
           </div>
 
           <div className="about__visual">
             <img
-              src="https://images.unsplash.com/photo-1550831107-1553da8c8464?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              src={aboutImg}
               alt="Pharmacists serving customer"
               className="about__img"
             />
@@ -210,9 +136,9 @@ const Home = () => {
 
             {loading ? (
               <div className="loading-wrapper"><div className="spinner" /></div>
-            ) : featured.length > 0 ? (
+            ) : editorsChoice.length > 0 ? (
               <div className="grid grid-4 editor-grid">
-                {featured.map((p) => <ProductCard key={p.id} product={p} />)}
+                {editorsChoice.map((p) => <ProductCard key={p.id} product={p} />)}
               </div>
             ) : (
               <div className="home__empty">
@@ -227,7 +153,7 @@ const Home = () => {
               <div className="trust-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
               </div>
-              <h4 className="trust-title">International\nShipment</h4>
+              <h4 className="trust-title">International Shipment</h4>
               <p className="trust-desc">Your orders are shipped seamlessly between countries</p>
             </div>
 
@@ -243,24 +169,23 @@ const Home = () => {
               <div className="trust-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2" /><line x1="1" y1="10" x2="23" y2="10" /></svg>
               </div>
-              <h4 className="trust-title">Secure Payment</h4>
-              <p className="trust-desc">Your payments are secure with our private security network.</p>
+              <h4 className="trust-title">Safe & Verified</h4>
+              <p className="trust-desc">Every product is checked for quality and reliability.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Service Banner */}
-      <section className="service-banner section" style={{ backgroundImage: `url(${pillsBg})` }}>
+      <section className="service-banner section" style={{ backgroundImage: `url(${vitBg})` }}>
         <div className="service-banner__overlay"></div>
         <div className="container service-banner__content">
-          <h2 className="service-banner__title">A pharmacy with world-class<br />service.</h2>
+          <h2 className="service-banner__title">Modern healthcare, built around you.</h2>
           <p className="service-banner__desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec<br />
-            ullamcorper mattis, pulvinar dapibus leo.
+            Access trusted medicines and healthcare essentials with ease, reliability, and complete peace of mind.
           </p>
           <div className="service-banner__cta">
-            <Link to="/products" className="btn btn-primary btn-lg">Discover more</Link>
+            <Link to="/products" className="btn btn-primary btn-lg">Explore Products</Link>
           </div>
         </div>
       </section>
@@ -268,66 +193,41 @@ const Home = () => {
       {/* Latest Products */}
       <section className="section latest-products-section">
         <div className="container">
-          <div className="editor-header">
-            <h2 className="editor-title">Latest Product</h2>
-            <div className="editor-divider"></div>
+          <div className="latest-header">
+            <div className="latest-header__text">
+              <span className="latest-label">FRESH ARRIVALS</span>
+              <h2 className="latest-title">Latest Products</h2>
+            </div>
+            <Link to="/products" className="latest-view-all">
+              View All <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </Link>
           </div>
           <div className="grid grid-5 latest-grid">
-            {LATEST_PRODUCTS.map(p => <ProductCard key={p.id} product={p} />)}
+            {loading ? (
+              <div className="loading-wrapper"><div className="spinner" /></div>
+            ) : latestProducts.length > 0 ? (
+              latestProducts.map(p => <ProductCard key={p.id} product={p} />)
+            ) : (
+              <div className="home__empty">
+                <p>No latest products yet. <Link to="/admin">Add products from the Admin Panel →</Link></p>
+              </div>
+            )}
           </div>
         </div>
       </section>
 
-      {/* Promo Banners Grid */}
-      <section className="section promo-section">
-        <div className="container promo-grid">
-          <div className="promo-item promo-item--large" style={{ backgroundColor: PROMOS.main.bgColor }}>
-            <div className="promo-content">
-              <span className="promo-badge">Promo</span>
-              <h3 className="promo-title">{PROMOS.main.title}</h3>
-              <p className="promo-desc">{PROMOS.main.desc}</p>
-            </div>
-            <img src={PROMOS.main.image} alt="Thermo" className="promo-img" />
-          </div>
 
-          <div className="promo-item promo-item--medium">
-            <div className="promo-content">
-              <h3 className="promo-title">{PROMOS.mask.title}</h3>
-              <p className="promo-desc">{PROMOS.mask.desc}</p>
-              <Link to="/products" className="btn btn-primary btn-sm">Shop now</Link>
-            </div>
-            <img src={PROMOS.mask.image} alt="Mask" className="promo-img" />
-          </div>
-
-          <div className="promo-item promo-item--medium promo-item--routine">
-            <div className="promo-content">
-              <h3 className="promo-title">{PROMOS.routine.title}</h3>
-              <p className="promo-desc">{PROMOS.routine.desc}</p>
-              <Link to="/products" className="btn btn-secondary btn-sm">Shop now</Link>
-            </div>
-            <img src={PROMOS.routine.image} alt="Routine" className="promo-img" />
-          </div>
-
-          <div className="promo-item promo-item--wide">
-            <div className="promo-content">
-              <h3 className="promo-title">{PROMOS.skincare.title}</h3>
-              <p className="promo-desc">{PROMOS.skincare.desc}</p>
-              <Link to="/products" className="btn btn-accent btn-sm">Shop now</Link>
-            </div>
-            <img src={PROMOS.skincare.image} alt="Skincare" className="promo-img" />
-          </div>
-        </div>
-      </section>
 
       {/* Why Choose Us */}
       <section className="section why-choose-us">
         <div className="container why-layout">
-          <div className="why-content">
+          <div className="why-header">
             <span className="why-label">WHY CHOOSE US</span>
             <h2 className="why-title">Best services available for the best customers</h2>
-            <div className="why-visual">
-              <img src="https://plus.unsplash.com/premium_photo-1661690006963-7c8868418ed6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmVzdCUyMG1lZGljYWwlMjBzZXJ2aWNlc3xlbnwwfHwwfHx8MA%3D%3D" alt="Service illustration" className="why-img" />
-            </div>
+          </div>
+          
+          <div className="why-visual">
+            <img src={bestImg} alt="Service illustration" className="why-img" />
           </div>
 
           <div className="why-features">
@@ -337,7 +237,7 @@ const Home = () => {
               </div>
               <div className="why-card__body">
                 <h4>Honesty & transparency</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                <p>We provide clear, upfront pricing and verified product sourcing so you always know exactly what you are getting.</p>
               </div>
             </div>
 
@@ -347,7 +247,7 @@ const Home = () => {
               </div>
               <div className="why-card__body">
                 <h4>Extra Discount</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                <p>Enjoy exclusive deals and seasonal discounts to make your essential healthcare purchases more affordable.</p>
               </div>
             </div>
 
@@ -357,7 +257,7 @@ const Home = () => {
               </div>
               <div className="why-card__body">
                 <h4>24/7 Premium Support</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                <p>Our dedicated support team is available around the clock to assist you with your orders and healthcare inquiries.</p>
               </div>
             </div>
           </div>
@@ -370,7 +270,7 @@ const Home = () => {
         <div className="container testimonials-content">
           <span className="testimonials-label">TESTIMONIAL</span>
           <h2 className="testimonials-title">What they say about us</h2>
-          <p className="testimonials-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+          <p className="testimonials-subtitle">Discover why thousands of customers trust RemediCart for their daily healthcare needs and medical supplies.</p>
 
           <div className="grid grid-3 testimonial-grid">
             {TESTIMONIALS.map((t, i) => (

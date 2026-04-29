@@ -94,9 +94,9 @@
 }
 
 .admin-table td {
-  padding: 1rem;
+  padding: 0.75rem 1rem;
   border-bottom: 1px solid #f3f4f6;
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   color: #374151;
   vertical-align: middle;
 }
@@ -124,11 +124,12 @@
 .out-of-stock { background-color: #fee2e2; color: #991b1b; }
 
 .text-truncate {
-  max-width: 200px;
+  max-width: 150px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   color: #6b7280;
+  font-size: 0.8rem;
 }
 
 .action-buttons {

@@ -11,8 +11,10 @@ const Logout = () => {
       try {
         await logout();
       } catch (err) {
-        console.error(err);
-        window.location.href = '/auth';
+        console.error('Logout error:', err);
+      } finally {
+        // Fallback: Ensure we always end up at login even if signout fails
+        window.location.href = '/login';
       }
     };
     performLogout();

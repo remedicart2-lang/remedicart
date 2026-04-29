@@ -16,17 +16,20 @@ const Auth = () => {
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
-  const { user, isAdmin } = useAuth();
+  const { user, isAdmin, loading: authLoading } = useAuth();
+  const [redirecting, setRedirecting] = useState(false);
 
   useEffect(() => {
-    if (user) {
+    if (!authLoading && user) {
       if (isAdmin) {
+        setRedirecting(true);
         navigate('/admin/products');
       } else {
-        navigate('/');
+        setError('Access Denied: You do not have admin privileges.');
+        setLoading(false);
       }
     }
-  }, [user, isAdmin, navigate]);
+  }, [user, isAdmin, authLoading, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -61,31 +64,8 @@ const Auth = () => {
           <img src={logo} alt="Remedicart" />
         </div>
 
-        <div className="auth-card__tabs">
-          <button
-            className={`auth-tab${mode === 'login' ? ' active' : ''}`}
-            onClick={() => { setMode('login'); setError(''); setMessage(''); }}
-            id="auth-tab-login"
-          >
-            Sign In
-          </button>
-          <button
-            className={`auth-tab${mode === 'register' ? ' active' : ''}`}
-            onClick={() => { setMode('register'); setError(''); setMessage(''); }}
-            id="auth-tab-register"
-          >
-            Register
-          </button>
-        </div>
-
-        <h1 className="auth-card__title">
-          {mode === 'login' ? 'Welcome back!' : 'Create an account'}
-        </h1>
-        <p className="auth-card__sub">
-          {mode === 'login'
-            ? 'Sign in to your Remedicart account'
-            : 'Join Remedicart for a better health shopping experience'}
-        </p>
+        <h1 className="auth-card__title">Admin Login</h1>
+        <p className="auth-card__sub">Sign in to access the Remedicart Admin Panel</p>
 
         {error && <div className="alert alert-error">{error}</div>}
         {message && <div className="alert alert-success">{message}</div>}
@@ -97,7 +77,7 @@ const Auth = () => {
               id="auth-email"
               type="email"
               className="form-input"
-              placeholder="you@example.com"
+              placeholder="admin@remedicart.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -110,12 +90,12 @@ const Auth = () => {
               id="auth-password"
               type="password"
               className="form-input"
-              placeholder={mode === 'register' ? 'Minimum 6 characters' : 'Your password'}
+              placeholder="Your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
               minLength={6}
-              autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
+              autoComplete="current-password"
             />
           </div>
           <button
@@ -124,20 +104,9 @@ const Auth = () => {
             disabled={loading}
             id="auth-submit-btn"
           >
-            {loading ? 'Please wait…' : mode === 'login' ? 'Sign In' : 'Create Account'}
+            {loading || authLoading || redirecting ? 'Please wait…' : 'Sign In'}
           </button>
         </form>
-
-        <p className="auth-card__footer">
-          {mode === 'login' ? "Don't have an account? " : 'Already have an account? '}
-          <button
-            className="auth-toggle"
-            onClick={() => { setMode(mode === 'login' ? 'register' : 'login'); setError(''); setMessage(''); }}
-            id="auth-toggle-btn"
-          >
-            {mode === 'login' ? 'Register' : 'Sign in'}
-          </button>
-        </p>
 
         <Link to="/" className="auth-back-link" id="auth-back-home-link">← Back to Home</Link>
       </div>

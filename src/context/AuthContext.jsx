@@ -1,78 +1,50 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState, useCallback } from 'react';
 import { supabase } from '../services/supabase';
 import { getUserProfile, createUserProfile } from '../services/userService';
 
 const AuthContext = createContext(null);
 
+// List of authorized admin emails
+const ADMIN_EMAILS = ['remedicart2@gmail.com'];
+
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Check initial session
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session?.user ?? null);
-      if (session?.user) fetchProfile(session.user.id);
-      else setLoading(false);
+      setLoading(false);
     });
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
+    // Listen for auth changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null);
-      if (session?.user) {
-        await fetchProfile(session.user.id);
-      } else {
-        setProfile(null);
-        setLoading(false);
-      }
+      setLoading(false);
     });
 
     return () => subscription.unsubscribe();
   }, []);
 
-  const fetchProfile = async (userId) => {
+  const isAdmin = user ? ADMIN_EMAILS.includes(user.email) : false;
+
+  const logout = useCallback(async () => {
     try {
-      const profileData = await getUserProfile(userId);
-      setProfile(profileData);
-    } catch {
-      try {
-        const user = (await supabase.auth.getUser()).data.user;
-        if (user) {
-          await createUserProfile(user.id, user.email, 'user');
-          const profileData = await getUserProfile(user.id);
-          setProfile(profileData);
-        }
-      } catch (err) {
-        console.error('Error creating user profile:', err);
-      }
+      setLoading(true);
+      await supabase.auth.signOut();
+      setUser(null);
+      window.location.replace('/login');
+    } catch (err) {
+      console.error('Logout error:', err);
+      window.location.replace('/login');
     } finally {
       setLoading(false);
     }
-  };
-
-  const isAdmin = profile?.role === 'admin';
-
-  const logout = async () => {
-    console.log('Logging out...');
-    try {
-      setLoading(true);
-      const { error } = await supabase.auth.signOut();
-      if (error) throw error;
-      
-      setUser(null);
-      setProfile(null);
-      
-      console.log('Sign out successful, redirecting...');
-      // Use location.replace for a cleaner history
-      window.location.replace('/auth');
-    } catch (err) {
-      console.error('Logout error:', err);
-      // Fallback redirect even on error
-      window.location.replace('/auth');
-    }
-  };
+  }, []);
 
   return (
-    <AuthContext.Provider value={{ user, profile, loading, isAdmin, logout }}>
+    <AuthContext.Provider value={{ user, loading, isAdmin, logout }}>
       {children}
     </AuthContext.Provider>
   );

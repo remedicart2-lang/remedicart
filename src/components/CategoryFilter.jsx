@@ -1,33 +1,39 @@
 import './CategoryFilter.css';
 
 const CATEGORIES = [
-  { value: '', label: 'All' },
-  { value: 'Antiviral & Antibiotic', label: '🦠 Antiviral & Antibiotic' },
-  { value: 'Kamagra All Range', label: '💊 Kamagra All Range' },
-  { value: 'Modafinil And Armodafinil', label: '💊 Modafinil And Armodafinil' },
-  { value: 'Hair Loss Treatment', label: '👤 Hair Loss Treatment' },
-  { value: 'Pain Killer', label: '💊 Pain Killer' },
-  { value: 'Sleeping Pills', label: '🌙 Sleeping Pills' },
-  { value: 'Skin Cream', label: '🧴 Skin Cream' },
-  { value: 'Steroid', label: '💉 Steroid' },
-  { value: 'Drop Shipping', label: '🚚 Drop Shipping' },
-  { value: 'Mens Health', label: '👨 Mens Health' },
-  { value: 'Eye and Ear', label: '💧 Eye and Ear' },
-  { value: 'Contraceptives', label: '💊 Contraceptives' },
-  { value: 'Others', label: '➕ Others' },
+  { value: '', label: 'All', icon: '🌐' },
+  { value: 'best-seller', label: 'Best Seller', icon: '⭐' },
+  { value: 'antiviral-antibiotic', label: 'Antiviral & Antibiotic', icon: '🦠' },
+  { value: 'kamagra', label: 'Kamagra', icon: '💊' },
+  { value: 'sildenafil', label: 'Sildenafil', icon: '💊' },
+  { value: 'tadalafil', label: 'Tadalafil', icon: '💊' },
+  { value: 'vardenafil', label: 'Vardenafil', icon: '💊' },
+  { value: 'avanafil', label: 'Avanafil', icon: '💊' },
+  { value: 'modafinil-armodafinil', label: 'Modafinil & Armodafinil', icon: '🧠' },
+  { value: 'hair-loss', label: 'Hair Loss', icon: '👤' },
+  { value: 'pain-killer', label: 'Pain Killer', icon: '💊' },
+  { value: 'sleeping-pills', label: 'Sleeping Pills', icon: '🌙' },
+  { value: 'skin-cream', label: 'Skin Cream', icon: '🧴' },
+  { value: 'weight-loss', label: 'Weight Loss', icon: '⚖️' },
+  { value: 'eye-ear-drops', label: 'Eye & Ear Drops', icon: '💧' },
+  { value: 'steroid', label: 'Steroid', icon: '💉' },
+  { value: 'drop-shipping', label: 'Drop Shipping', icon: '🚚' },
+  { value: 'contraceptives', label: 'Contraceptives', icon: '🛡️' },
+  { value: 'others', label: 'Others', icon: '➕' },
 ];
 
 const CategoryFilter = ({ selected, onChange }) => {
   return (
-    <div className="category-filter" role="group" aria-label="Filter by category">
+    <div className="category-grid" role="group" aria-label="Filter by category">
       {CATEGORIES.map((cat) => (
         <button
           key={cat.value}
           id={`cat-btn-${cat.value || 'all'}`}
-          className={`category-filter__btn${selected === cat.value ? ' active' : ''}`}
+          className={`category-card${selected === cat.value ? ' active' : ''}`}
           onClick={() => onChange(cat.value)}
         >
-          {cat.label}
+          <span className="category-card__icon">{cat.icon}</span>
+          <span className="category-card__label">{cat.label}</span>
         </button>
       ))}
     </div>

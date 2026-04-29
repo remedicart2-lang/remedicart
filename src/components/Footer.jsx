@@ -24,29 +24,19 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Account */}
-          <div className="footer__col">
-            <h4 className="footer__heading">Account</h4>
-            <ul className="footer__list">
-              <li><Link to="/auth">Sign In</Link></li>
-              <li><Link to="/auth?mode=register">Register</Link></li>
-              <li><Link to="/cart">My Cart</Link></li>
-            </ul>
-          </div>
 
           {/* Contact */}
           <div className="footer__col">
             <h4 className="footer__heading">Contact</h4>
             <ul className="footer__list">
-              <li>📧 support@remedicart.com</li>
-              <li>📞 +91 98765 43210</li>
-              <li>🕐 Mon–Sat, 9AM–6PM</li>
+              <li>📧 remedicart@gmail.com</li>
+              <li>📞 +91 91 72237 145</li>
             </ul>
           </div>
         </div>
 
         <div className="footer__bottom">
-          <p>© {new Date().getFullYear()} Remedicart. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Designed and Developed by Saturn X Digital Solutions </p>
           <p>Licensed Online Pharmacy</p>
         </div>
       </div>

@@ -13,6 +13,7 @@ import Auth from './pages/Auth';
 import Aboutus from './pages/Aboutus';
 import Contactus from './pages/Contactus';
 import Blog from './pages/Blog';
+import BlogDetails from './pages/BlogDetails';
 import FAQ from './pages/FAQ';
 
 // Admin
@@ -37,12 +38,13 @@ const App = () => {
                 <Route path="/products" element={<ProductListing />} />
                 <Route path="/products/:id" element={<ProductDetails />} />
                 <Route path="/cart" element={<Cart />} />
-                <Route path="/auth" element={<Auth />} />
+                <Route path="/login" element={<Auth />} />
+                <Route path="/auth" element={<Navigate to="/login" replace />} />
                 <Route path="/about" element={<Aboutus />} />
                 <Route path="/contact" element={<Contactus />} />
                 <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:id" element={<BlogDetails />} />
                 <Route path="/faq" element={<FAQ />} />
-                <Route path="/login" element={<Navigate to="/admin/products" replace />} />
                 <Route path="/logout" element={<Logout />} />
 
                 {/* Admin Routes */}

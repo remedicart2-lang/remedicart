@@ -1,17 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { useCart } from '../context/CartContext';
 import { getProductById } from '../services/productService';
 import './ProductDetails.css';
 
 const ProductDetails = () => {
   const { id } = useParams();
-  const { addToCart } = useCart();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const [quantity, setQuantity] = useState(1);
-  const [added, setAdded] = useState(false);
 
   useEffect(() => {
     getProductById(id)
@@ -20,10 +16,17 @@ const ProductDetails = () => {
       .finally(() => setLoading(false));
   }, [id]);
 
-  const handleAddToCart = () => {
-    addToCart(product, quantity);
-    setAdded(true);
-    setTimeout(() => setAdded(false), 2000);
+  const handleInquiry = () => {
+    const subject = encodeURIComponent(`Inquiry about ${product.name}`);
+    const body = encodeURIComponent(
+      `Hello,\n\nI would like to know more about ${product.name}.\n\nThank you.`
+    );
+
+    const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=medclickpharma@gmail.com&su=${subject}&body=${body}`;
+    const mailtoLink = `mailto:medclickpharma@gmail.com?subject=${subject}&body=${body}`;
+
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    window.open(isMobile ? mailtoLink : gmailLink, "_blank");
   };
 
   if (loading) return <div className="loading-wrapper"><div className="spinner" /></div>;
@@ -62,28 +65,15 @@ const ProductDetails = () => {
               <span className="badge badge-teal product-details__badge">{product.category}</span>
             )}
             <h1 className="product-details__name">{product.name}</h1>
-            <p className="product-details__price">₹{parseFloat(product.price).toFixed(2)}</p>
             <p className="product-details__desc">{product.description}</p>
-
-            {/* Quantity */}
-            <div className="product-details__qty">
-              <label className="form-label">Quantity</label>
-              <div className="qty-control">
-                <button className="qty-control__btn" onClick={() => setQuantity(q => Math.max(1, q - 1))} id="qty-dec-btn">−</button>
-                <span className="qty-control__val">{quantity}</span>
-                <button className="qty-control__btn" onClick={() => setQuantity(q => q + 1)} id="qty-inc-btn">+</button>
-              </div>
-            </div>
-
             <div className="product-details__actions">
               <button
-                className={`btn btn-lg ${added ? 'btn-teal' : 'btn-primary'}`}
-                onClick={handleAddToCart}
-                id="product-add-to-cart-btn"
+                onClick={handleInquiry}
+                className="btn btn-primary"
+                style={{ width: '100%', display: 'flex', justifyContent: 'center', gap: '0.5rem', marginTop: '1rem' }}
               >
-                {added ? '✓ Added to Cart!' : 'Add to Cart'}
+                📩 Inquire Now
               </button>
-              <Link to="/cart" className="btn btn-outline btn-lg" id="product-go-to-cart-btn">View Cart</Link>
             </div>
 
             <div className="product-details__meta">

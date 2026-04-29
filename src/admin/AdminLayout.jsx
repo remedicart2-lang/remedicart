@@ -7,14 +7,13 @@ const AdminLayout = () => {
 
   if (loading) return <div className="loading-wrapper"><div className="spinner" /></div>;
   
-  // TEMPORARY BYPASS: Allowing access during setup
-  // if (!user) return <Navigate to="/auth" replace />;
-  // if (!isAdmin) return (
-  //   <div className="admin-unauthorized">
-  //     <h2>🔒 Access Denied</h2>
-  //     <p>You need admin privileges to access this panel.</p>
-  //   </div>
-  // );
+  if (!user) return <Navigate to="/login" replace />;
+  if (!isAdmin) return (
+    <div className="admin-unauthorized">
+      <h2>🔒 Access Denied</h2>
+      <p>You need admin privileges to access this panel.</p>
+    </div>
+  );
 
   return (
     <div className="admin-workspace">
@@ -31,7 +30,7 @@ const AdminLayout = () => {
               <div className="admin-profile__status">
                 <span className="admin-profile__icon">👤</span>
                 <div className="admin-profile__info">
-                  <span className="admin-profile__name">{profile?.name || 'Admin'}</span>
+                  <span className="admin-profile__name">{user?.email?.split('@')[0] || 'Admin'}</span>
                   <span className="admin-profile__online">Online</span>
                 </div>
               </div>
