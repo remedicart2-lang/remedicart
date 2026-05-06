@@ -28,7 +28,7 @@ const Navbar = () => {
         <div className="container topbar__inner">
           <div className="topbar__left">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" /></svg>
-            <span className="topbar__text">Discount up to 35% for first purchase only this month.</span>
+            <span className="topbar__text">Making healthcare simple, accessible, and reliable</span>
           </div>
           <div className="topbar__right">
             <span className="topbar__item">

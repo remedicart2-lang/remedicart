@@ -6,7 +6,7 @@ import { getProductsByCategory } from '../services/productService';
 import heroBg from '../assets/hero-bg-cropped.jpg';
 import pillsBg from '../assets/pills-bg.jpg';
 import aboutImg from '../assets/remedicart-img4.jpg.jpeg';
-import vitBg from '../assets/vit.jpeg';
+import vitBg from '../assets/banner.png';
 import bestImg from '../assets/best.jpeg';
 import './Home.css';
 
