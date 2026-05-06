@@ -29,7 +29,7 @@ const ProductDetails = () => {
   const handleInquiry = () => {
     const subject = encodeURIComponent(`Inquiry about ${product.name}`);
     const body = encodeURIComponent(
-      `Hello,\n\nI would like to know more about ${product.name}.\n\nThank you.`
+      `Hello ,\n\nI am interested in ${product.name}.\n\nPlease provide more details regarding this product.\n\nMy Details:\nLocation/Country Code: \nPhone Number: \n\nThank you.`
     );
     const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=remedicart2@gmail.com&su=${subject}&body=${body}`;
     const mailtoLink = `mailto:remedicart2@gmail.com?subject=${subject}&body=${body}`;
@@ -50,8 +50,8 @@ const ProductDetails = () => {
       <div className="container">
         {/* Breadcrumb */}
         <nav className="breadcrumb">
-          <Link to="/">Home</Link> <span>/</span> 
-          <Link to="/products">Products</Link> <span>/</span> 
+          <Link to="/">Home</Link> <span>/</span>
+          <Link to="/products">Products</Link> <span>/</span>
           <span>{product.name}</span>
         </nav>
 
@@ -62,7 +62,7 @@ const ProductDetails = () => {
           </div>
           <div className="product-main__info">
             <h1 className="product-name">{product.name}</h1>
-            
+
             <div className="info-row">
               <span className="info-label">Category:</span>
               <span className="category-badge">{product.category?.toUpperCase()}</span>
@@ -81,7 +81,7 @@ const ProductDetails = () => {
             </div>
 
             <button className="btn-inquire-large" onClick={handleInquiry}>
-              <span className="btn-icon">📩</span> Inquire Now
+              <span className="btn-icon">📩</span> Enquire Now
             </button>
           </div>
         </div>
@@ -89,19 +89,19 @@ const ProductDetails = () => {
         {/* Tabs Section */}
         <div className="product-tabs-container">
           <div className="tabs-header">
-            <button 
+            <button
               className={`tab-btn ${activeTab === 'description' ? 'active' : ''}`}
               onClick={() => setActiveTab('description')}
             >
               <span className="tab-icon">ℹ️</span> Description
             </button>
-            <button 
+            <button
               className={`tab-btn ${activeTab === 'sideEffects' ? 'active' : ''}`}
               onClick={() => setActiveTab('sideEffects')}
             >
               <span className="tab-icon">❤️</span> Side Effects
             </button>
-            <button 
+            <button
               className={`tab-btn ${activeTab === 'content' ? 'active' : ''}`}
               onClick={() => setActiveTab('content')}
             >

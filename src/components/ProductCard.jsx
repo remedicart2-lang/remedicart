@@ -8,11 +8,11 @@ const ProductCard = ({ product }) => {
     e.preventDefault();
     const subject = encodeURIComponent(`Inquiry about ${product.name}`);
     const body = encodeURIComponent(
-      `Hello,\n\nI would like to know more about ${product.name}.\n\nThank you.`
+      `Hello RemediCart,\n\nI am interested in ${product.name}.\n\nPlease provide more details regarding this product.\n\nMy Details:\nLocation/Country Code: \nPhone Number: \n\nThank you.`
     );
 
     const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=remedicart2@gmail.com&su=${subject}&body=${body}`;
-    const mailtoLink = `mailto:medclickpharma@gmail.com?subject=${subject}&body=${body}`;
+    const mailtoLink = `mailto:remedicart2@gmail.com?subject=${subject}&body=${body}`;
 
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     window.open(isMobile ? mailtoLink : gmailLink, "_blank");
