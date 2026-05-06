@@ -29,14 +29,14 @@ const Footer = () => {
           <div className="footer__col">
             <h4 className="footer__heading">Contact</h4>
             <ul className="footer__list">
-              <li>📧 remedicart@gmail.com</li>
+              <li>📧 info@remedicart.com</li>
               <li>📞 +91 91 72237 145</li>
             </ul>
           </div>
         </div>
 
         <div className="footer__bottom">
-          <p>© {new Date().getFullYear()} Designed and Developed by Saturn X Digital Solutions </p>
+          <p>© {new Date().getFullYear()} Designed and Developed by SaturnX Digital Solutions </p>
           <p>Licensed Online Pharmacy</p>
         </div>
       </div>

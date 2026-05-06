@@ -59,7 +59,7 @@ const AdminOrders = () => {
             <tbody>
               {orders.map((order) => (
                 <tr key={order.id} id={`admin-order-row-${order.id}`}>
-                  <td style={{ fontFamily: 'monospace', fontSize: '0.75rem', color: 'var(--color-text-muted)' }}>
+                  <td style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)' }}>
                     #{order.id.slice(0, 8)}
                   </td>
                   <td>{order.products?.name || '—'}</td>

@@ -27,32 +27,7 @@
   line-height: 1.6;
 }
 
-/* Category Filter */
-.blog-filter {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 4rem;
-  flex-wrap: wrap;
-}
 
-.filter-btn {
-  padding: 0.6rem 1.5rem;
-  border-radius: 999px;
-  background: var(--color-white);
-  border: 1px solid var(--color-border);
-  font-weight: 600;
-  color: var(--color-text-muted);
-  transition: all 0.3s;
-}
-
-.filter-btn:hover,
-.filter-btn.active {
-  background: var(--color-teal);
-  color: var(--color-white);
-  border-color: var(--color-teal);
-  box-shadow: 0 4px 12px rgba(95, 179, 179, 0.2);
-}
 
 /* Featured Section */
 .featured-blog {

@@ -1,10 +1,31 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './SearchBar.css';
 
 const SearchBar = ({ placeholder = 'Search medicines, vitamins...', initialQuery = '' }) => {
   const [query, setQuery] = useState(initialQuery);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    // Sync query state with initialQuery prop (e.g. when URL changes externally)
+    setQuery(initialQuery);
+  }, [initialQuery]);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      // Only navigate if query has changed from initialQuery
+      if (query !== initialQuery) {
+        const isShopPage = location.pathname === '/products';
+        const searchPath = `/products?search=${encodeURIComponent(query.trim())}`;
+        
+        // Use replace: true if already on shop page to avoid bloating history
+        navigate(searchPath, { replace: isShopPage });
+      }
+    }, 400); // 400ms debounce
+
+    return () => clearTimeout(handler);
+  }, [query, navigate, location.pathname, initialQuery]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Aboutus.css';
-import heroImg from '../assets/hero1.jpg';
+import heroImg from '../assets/Gemini.png';
 import splitImg from '../assets/health.jpeg';
 
 const Aboutus = () => {

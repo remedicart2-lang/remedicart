@@ -1,7 +1,6 @@
 import './CategoryFilter.css';
 
 const CATEGORIES = [
-  { value: '', label: 'All', icon: '🌐' },
   { value: 'best-seller', label: 'Best Seller', icon: '⭐' },
   { value: 'antiviral-antibiotic', label: 'Antiviral & Antibiotic', icon: '🦠' },
   { value: 'kamagra', label: 'Kamagra', icon: '💊' },

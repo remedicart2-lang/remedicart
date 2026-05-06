@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 /* ── CSS Variables ── */
 :root {
@@ -30,7 +30,7 @@
   --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.05);
 
   --transition: 0.2s ease;
-  --font-sans: 'Inter', sans-serif;
+  --font-sans: 'Poppins', sans-serif;
   --font-display: 'Poppins', sans-serif;
 }
 

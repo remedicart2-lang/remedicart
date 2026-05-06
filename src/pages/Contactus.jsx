@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { PhoneInput } from 'react-international-phone';
+import 'react-international-phone/style.css';
 import './Contactus.css';
 
 const Contactus = () => {
+  const [phone, setPhone] = useState('');
+
   return (
     <div className="contact-page">
       {/* Header Section */}
@@ -37,7 +41,7 @@ const Contactus = () => {
             </div>
             <div className="info-item__content">
               <span className="info-item__label">Email</span>
-              <span className="info-item__value">remedicart@gmail.com</span>
+              <span className="info-item__value">info@remedicart.com</span>
             </div>
           </div>
 
@@ -47,7 +51,7 @@ const Contactus = () => {
             </div>
             <div className="info-item__content">
               <span className="info-item__label">Location</span>
-              <span className="info-item__value">Mumbai, Maharashtra, India</span>
+              <span className="info-item__value">Nagpur, Maharashtra, India</span>
             </div>
           </div>
         </aside>
@@ -56,15 +60,25 @@ const Contactus = () => {
         <section className="contact-form-container">
           <h2 className="contact-form__title">Send Us a Message</h2>
           <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
-            <div className="form-grid">
+            <div className="form-column">
               <div className="form-group">
                 <input type="text" placeholder="Full Name" required />
               </div>
               <div className="form-group">
                 <input type="email" placeholder="Email" required />
               </div>
-              <div className="form-group">
-                <input type="tel" placeholder="Phone" />
+              <div className="form-group phone-group">
+                <PhoneInput
+                  defaultCountry="in"
+                  value={phone}
+                  onChange={(phone) => setPhone(phone)}
+                  className="phone-input-container"
+                  inputClassName="phone-input-field"
+                  countrySelectorStyleProps={{
+                    buttonClassName: 'phone-input-button',
+                    dropdownClassName: 'phone-input-dropdown'
+                  }}
+                />
               </div>
               <div className="form-group">
                 <input type="text" placeholder="Location" />

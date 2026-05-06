@@ -63,13 +63,7 @@ const Blog = () => {
         </div>
       </header>
 
-      {/* Category Filter */}
-      <nav className="blog-filter container">
-        <button className="filter-btn active">All</button>
-        <button className="filter-btn">Health Tips</button>
-        <button className="filter-btn">Medicines</button>
-        <button className="filter-btn">Wellness</button>
-      </nav>
+
 
       {/* Featured Blog Section */}
       <section className="featured-blog">

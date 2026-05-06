@@ -37,7 +37,7 @@ export const searchProducts = async (query) => {
   const { data, error } = await supabase
     .from('products')
     .select('*')
-    .or(`name.ilike.%${query}%,content.ilike.%${query}%`);
+    .or(`name.ilike.%${query}%,content.ilike.%${query}%,category.ilike.%${query}%`);
   if (error) throw error;
   return data;
 };
