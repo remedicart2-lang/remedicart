@@ -30,7 +30,7 @@ const Footer = () => {
             <h4 className="footer__heading">Contact</h4>
             <ul className="footer__list">
               <li>📧 info@remedicart.com</li>
-              <li>📞 +91 91 72237 145</li>
+              <li>📞 +91 80 07190 701</li>
             </ul>
           </div>
         </div>

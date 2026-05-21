@@ -286,3 +286,17 @@
     height: 180px;
   }
 }
+
+.form-status {
+  margin-top: 14px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.form-status.success {
+  color: #16a34a;
+}
+
+.form-status.error {
+  color: #dc2626;
+}
