@@ -191,7 +191,7 @@ const Home = () => {
       </section>
 
       {/* Latest Products */}
-      <section className="section latest-products-section">
+      {/* <section className="section latest-products-section">
         <div className="container">
           <div className="latest-header">
             <div className="latest-header__text">
@@ -214,7 +214,7 @@ const Home = () => {
             )}
           </div>
         </div>
-      </section>
+      </section> */}
 
 
 
