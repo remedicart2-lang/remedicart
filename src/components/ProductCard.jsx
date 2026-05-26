@@ -11,7 +11,7 @@ const ProductCard = ({ product }) => {
       `Hello RemediCart,\n\nI am interested in ${product.name}.\n\nPlease provide more details regarding this product.\n\nMy Details:\nLocation/Country Code: \nPhone Number: \n\nThank you.`
     );
 
-    const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=info@remedicart.com.com&su=${subject}&body=${body}`;
+    const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=info@remedicart.com&su=${subject}&body=${body}`;
     const mailtoLink = `mailto:info@remedicart.com?subject=${subject}&body=${body}`;
 
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
