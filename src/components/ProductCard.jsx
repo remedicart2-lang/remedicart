@@ -12,7 +12,7 @@ const ProductCard = ({ product }) => {
     );
 
     const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=remedicart2@gmail.com&su=${subject}&body=${body}`;
-    const mailtoLink = `mailto:remedicart2@gmail.com?subject=${subject}&body=${body}`;
+    const mailtoLink = `mailto:info@remedicart.com?subject=${subject}&body=${body}`;
 
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     window.open(isMobile ? mailtoLink : gmailLink, "_blank");
