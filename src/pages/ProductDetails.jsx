@@ -117,7 +117,7 @@ const ProductDetails = () => {
               <p className="tab-text">{product.sideEffect || 'No side effects listed.'}</p>
             )}
             {activeTab === 'content' && (
-              <p className="tab-text">{product.name}</p>
+              <p className="tab-text">{product.content}</p>
             )}
           </div>
         </div>
