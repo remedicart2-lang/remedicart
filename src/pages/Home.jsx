@@ -128,7 +128,7 @@ const Home = () => {
       <section className="section editor-section">
         <div className="container editor-layout">
           {/* Main Products Panel */}
-          <div className="editor-main">
+          {/* <div className="editor-main">
             <div className="editor-header">
               <h2 className="editor-title">Editor's Choice</h2>
               <div className="editor-divider"></div>
@@ -145,7 +145,7 @@ const Home = () => {
                 <p>No products yet. <Link to="/admin">Add products from the Admin Panel →</Link></p>
               </div>
             )}
-          </div>
+          </div> */}
 
           {/* Right Sidebar Info Panel */}
           <div className="editor-sidebar">
